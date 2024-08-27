@@ -1,0 +1,148 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}About{% endblock title %}
+
+{% block body %}
+<div class="container mx-0 my-2 py-0 px-2">
+    <h1>Projects</h1>
+    <main>      
+        <div class="album py-1 bg-body-tertiary">
+          <div class="container">
+      
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <div class="col">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="{% static 'assets/img/project_1.jpg' %}" alt="Card image cap" style="height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <div class="card-body p-2">
+                        <big>Linear Programming Problem (LPP)</big>
+                        <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">A Linear Programming Problem is a mathematical method used to find the best possible outcome under constraints. It is commonly used in operations research and optimization scenarios to achieve the optimal solution with given constraints such as resources, time, and costs.</p>
+                        <button class="btn btn-link p-0 text-decoration-none" onclick="showMore(this)">Show more</button>
+                        
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <a href="https://github.com/vinitpol/Projects_Python" target="_blank">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View Source Code</button>
+                      </a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="{% static 'assets/img/project_2.jpg' %}" alt="Card image cap" style="height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <div class="card-body p-2">
+                        <big>India Covid-19 Cases Data Analysis</big>
+                        <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">Analyzing confirmed, death, and cured cases across Indian states, with a focus on Maharashtra, Kerala, and Karnataka. The analysis highlights the trend in cases over time, the recovery rates, and the impact of government measures on controlling the spread of the virus.</p>
+                        <button class="btn btn-link p-0 text-decoration-none" onclick="showMore(this)">Show more</button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <a href="https://github.com/vinitpol/Projects_Python" target="_blank">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View Source Code</button>
+                      </a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="{% static 'assets/img/web_scraping.jpeg' %}" alt="Card image cap" style="height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <div class="card-body p-2">
+                        <big>Web Scraping</big>
+                        <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">In this project, I utilize web scraping techniques to collect data from multiple online sources. The data is then analyzed to identify patterns, trends, and insights that can be used for business intelligence, market research, and more.</p>
+                        <button class="btn btn-link p-0 text-decoration-none" onclick="showMore(this)">Show more</button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <a href="https://github.com/vinitpol/Projects_Python" target="_blank">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View Source Code</button>
+                      </a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="{% static 'assets/img/timesjob.jpg' %}" alt="Card image cap" style="height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <div class="card-body p-2">
+                        <big>Scraping of Live Website (TimesJob)</big>
+                        <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">I Scraped a live web sides to get the details like profile,description,Job role&Keyskills of all jobs related to python in Data Frame .</p>
+                        <button class="btn btn-link p-0 text-decoration-none" onclick="showMore(this)">Show more</button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <a href="https://github.com/vinitpol/Projects_Python" target="_blank">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View Source Code</button>
+                      </a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="{% static 'assets/img/portfolio.png' %}" alt="Card image cap" style="height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <div class="card-body p-2">
+                        <big>Portfolio Management</big>
+                        <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">This portfolio highlights my Software development projects in web development and data analysis. Built with HTML, CSS, and Django, it offers a responsive, user-friendly design.</p>
+                        <button class="btn btn-link p-0 text-decoration-none" onclick="showMore(this)">Show more</button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <a href="https://github.com/vinitpol/portfolio" target="_blank">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View Source Code</button>
+                      </a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="{% static 'assets/img/flask_crud.jpg' %}" alt="Card image cap" style="height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <div class="card-body p-2">
+                        <big>Flask-CRUD Application</big>
+                        <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">This Flask CRUD app allows users to manage data with options to create, read, update, and delete records. It has a clean design and uses Flask for the backend with a simple database.</p>
+                        <button class="btn btn-link p-0 text-decoration-none" onclick="showMore(this)">Show more</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+                        
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a href="https://github.com/vinitpol/Flask-crud-application" target="_blank">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View Source Code</button>
+                        </a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </main>
+      <script>
+        function showMore(button) {
+            var cardText = button.previousElementSibling;
+            var isCollapsed = cardText.classList.contains("text-truncate");
+        
+            if (isCollapsed) {
+                cardText.classList.remove("text-truncate");
+                cardText.style.maxHeight = "none";
+                button.textContent = "Show less";
+            } else {
+                cardText.classList.add("text-truncate");
+                cardText.style.maxHeight = "4rem";
+                button.textContent = "Show more";
+            }
+        }
+        </script>
+{% endblock body %}

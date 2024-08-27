@@ -1,0 +1,137 @@
+{% extends 'basic.html' %}
+{% block title %} About {% endblock title %}
+{% block body %}
+{% load static %}
+<style>
+  .circular-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .wrapper{
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .image-item {
+    flex: 1 0 30%; /* Each image takes up 30% of the row */
+    text-align: center;
+    margin: 10px;
+  }
+
+  .content h3 {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 15px;
+  }
+
+</style>
+
+<!-- Move the section title to the top -->
+<div class="container mt-4">
+  <div class="section-title">
+    <h2>About</h2>
+    <p>I'm Vinit Pol, a 24-year-old Python Backend Developer from Navi Mumbai with a passion for creating dynamic web applications. Since 2018, I've developed expertise in Python, web development, and data analysis. 
+      I specialize in crafting visually appealing and highly functional solutions, focusing on exceptional user experiences and top-tier interfaces.
+      As a versatile developer, I'm committed to collaborative projects, transforming ideas into innovative solutions through problem-solving and continuous learning. 
+      My goal is to deliver impactful results in every project I undertake.</p>
+  </div>
+
+  <div class="container mt-4">
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6" data-aos="fade-right">
+        <img src="{% static 'assets/img/about.jpeg' %}" class="img-fluid rounded" alt="About Image" style="max-width: 100%; height: auto; object-fit: cover;">
+      </div>
+      <div class="col-lg-8 col-md-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+        <h3>Python Developer &amp; Data Analyst.</h3><br>
+        <p class="fst-italic">
+          I have completed an internship at Autoplant System Pvt Ltd as a Python Backend Developer. I really enjoyed it and am seeking a full-time job.
+        </p>
+
+        <div class="wrapper">
+          <h2>Technologies I Used</h2>
+          <div class="image-container">
+            <div class="image-item">
+              <img src="{% static 'assets/img/python.jpg' %}" class="circular-image" alt="Python Image">
+              <div class="content">
+                <h3>Python</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/mysql.jpg' %}" class="circular-image" alt="MySQL Image">
+              <div class="content">
+                <h3>MySQL</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/flask.png' %}" class="circular-image" alt="Flask Image">
+              <div class="content">
+                <h3>Flask</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/mongodb.png' %}" class="circular-image" alt="MongoDB Image">
+              <div class="content">
+                <h3>MongoDB</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/git.png' %}" class="circular-image" alt="Git Image">
+              <div class="content">
+                <h3>Git</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/github.png' %}" class="circular-image" alt="Github Image">
+              <div class="content">
+                <h3>Github</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/html.png' %}" class="circular-image" alt="HTML Image">
+              <div class="content">
+                <h3>HTML</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/css.png' %}" class="circular-image" alt="CSS Image">
+              <div class="content">
+                <h3>CSS</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/javascript.png' %}" class="circular-image" alt="JavaScript Image">
+              <div class="content">
+                <h3>JavaScript</h3>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="{% static 'assets/img/aws_c.jpg' %}" class="circular-image" alt="AWS Cloud Image">
+              <div class="content">
+                <h3>AWS Cloud</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+<section id="about" class="about">
+</section><!-- End About Section -->
+
+{% endblock body %}

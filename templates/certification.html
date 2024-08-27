@@ -1,0 +1,308 @@
+{% extends "basic.html" %}
+{% load static %}
+{% block title %}Certification{% endblock title %}
+{% block body %}
+<style>
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 5%;
+    }
+
+    .carousel-control-prev {
+        left: -1%;
+    }
+
+    .carousel-control-next {
+        right: -1%;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    .carousel-item {
+        height: 600px;
+    }
+
+    .carousel-item .row {
+        height: 100%;
+    }
+
+    .carousel-item .col-md-6 {
+        height:100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .zoomable-container {
+        width:100%;
+        height:70%;
+        display:flex;
+        justify-content:center;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .zoomable {
+        transition: transform 0.3s ease;
+        max-width: 80%;
+        max-height:100%;
+        object-fit:contain;
+    }
+
+    .certification-text {
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+        margin: 5% auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    .modal-content img {
+        width: 100%;
+    }
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    @media (max-width: 767px) {
+        .carousel-item {
+            height: auto;
+        }
+
+        .carousel-item .row {
+            flex-direction: column;
+        }
+
+        .carousel-item .col-md-6 {
+            height: auto;
+            padding: 10px;
+        }
+
+        .zoomable-container {
+            height: 200px;
+        }
+
+        .zoomable {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .certification-text {
+            height: auto;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 10%;
+        }
+
+        .carousel-control-prev {
+            left: 0;
+        }
+
+        .carousel-control-next {
+            right: 0;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .modal-content {
+            width: 95%;
+            margin: 10% auto;
+        }
+
+        .close {
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+        }
+    }
+</style>
+
+<section class="py-5">
+    <center>
+    <div class="container">
+        <h2 class="text-center mb-4">🎓 Certification 🎓</h2>
+
+        <div id="certificationCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="true">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- First slide -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="zoomable-container">
+                                <img src="{% static 'assets/img/datamoulds.jpg' %}" class="zoomable" alt="Python Developer Internship" onclick="openModal(this, '{% static 'assets/img/datamoulds.jpg' %}')">
+                            </div>
+                            <div class="certification-text">
+                                <h4 class="mt-3" style="color:blue;"><b>Python Developer Internship of <big>2</big> Month</b></h4>
+                                <p style="color:blue;">During my internship I gained valuable experience working with Flaskcorp a no-code platform designed to streamline client projects and simplify customizations for developers enabling efficient and tailored solutions to meet specific requirements.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="zoomable-container">
+                                <img src="{% static 'assets/img/autoplant.jpg' %}" class="zoomable" alt="Another Certification" onclick="openModal(this, '{% static 'assets/img/autoplant.jpg' %}')">
+                            </div>
+                            <div class="certification-text">
+                                <h4 class="mt-3" style="color:red;"><b>Python Developer Internship of <big>6</big> Month</b></h4>
+                                <p style="color:red;">During my internship I learned Flask API development and the logic behind pivot tables I completed a project called "Linear Programming Problem (LPP)" which optimized transportation costs while maximizing profit by efficiently moving resources from sources to destinations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second slide -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="zoomable-container">
+                                <img src="{% static 'assets/img/aws.jpg' %}" class="zoomable" alt="Third Certification" onclick="openModal(this, '{% static 'assets/img/aws.jpg' %}')">
+                            </div>
+                            <div class="certification-text">
+                                <h4 class="mt-3" style="color:orange;"><b>AWS re/Start Graduate Badge </b></h4>
+                                <p style="color:orange;">I earned the AWS re/Start Graduate Badge from Credly upon successfully completing the AWS Cloud Training program through the Anudip Foundation.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="zoomable-container">
+                                <img src="{% static 'assets/img/dbms.jpg' %}" class="zoomable" alt="Fourth Certification" onclick="openModal(this, '{% static 'assets/img/dbms.jpg' %}')">
+                            </div>
+                            <div class="certification-text">
+                                <h4 class="mt-3" style="color:red;"><b>NPTEL Certification in DBMS</b></h4>
+                                <p style="color:red;">I Earned the NPTEL Certification in Database Management Systems (DBMS), showcasing advanced expertise in database design, implementation, and management.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third slide -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="zoomable-container">
+                                <img src="{% static 'assets/img/python_ai.jpg' %}" class="zoomable" alt="Python with Advance AI" onclick="openModal(this, '{% static 'assets/img/python_ai.jpg' %}')">
+                            </div>
+                            <div class="certification-text">
+                                <h4 class="mt-3" style="color:orange;"><b>Python with Advance AI</b></h4>
+                                <p style="color:orange;">I earned the Python with Advanced AI certificate from Skill India where I improved my Python skills and learned key AI techniques like machine learning This certification shows my ability to use Python for AI solutions.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="zoomable-container">
+                                <img src="{% static 'assets/img/deep_learn.jpg' %}" class="zoomable" alt="Deep Learning in Python" onclick="openModal(this, '{% static 'assets/img/deep_learn.jpg' %}')">
+                            </div>
+                            <div class="certification-text">
+                                <h4 class="mt-3" style="color:purple;"><b>Deep Learning in Python</b></h4>
+                                <p style="color:purple;">I earned the Python Deep Learning certificate by completing a comprehensive Udemy course, where I deepened my understanding of Python and advanced deep learning techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fourth slide -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="zoomable-container">
+                                <img src="{% static 'assets/img/ethical_hacking.jpg' %}" class="zoomable" alt="Ethical Hacking Certification" onclick="openModal(this, '{% static 'assets/img/ethical_hacking.jpg' %}')">
+                            </div>
+                            <div class="certification-text">
+                                <h4 class="mt-3" style="color:purple;"><b>Ethical Hacking Certification</b></h4>
+                                <p style="color:purple;">I completed a course in Ethical Hacking, where I developed skills in network security, penetration testing, and ethical hacking practices.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="zoomable-container">
+                                <img src="{% static 'assets/img/paper_publish.jpg' %}" class="zoomable" alt="AI & ML in Music Research paper" onclick="openModal(this, '{% static 'assets/img/paper_publish.jpg' %}')">
+                            </div>
+                            <div class="certification-text">
+                                <h4 class="mt-3" style="color:blue;"><b>AI & ML in Music Research paper</b></h4>
+                                <p style="color:blue;">I published a research paper on AI & ML in Music, exploring the integration of advanced algorithms in music composition and analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div> 
+            <button class="carousel-control-prev" type="button" data-bs-target="#certificationCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#certificationCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    </center>
+</section>
+
+<!-- Modal for Full Image View -->
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <img id="modalImage" src="">
+    </div>
+</div>
+
+<script>
+    function openModal(imgElement, largeImageUrl) {
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImage");
+        modal.style.display = "block";
+        modalImg.src = largeImageUrl;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("imageModal");
+        modal.style.display = "none";
+    }
+</script>
+
+{% endblock body %}
